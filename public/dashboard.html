@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Water Quality</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <h1>Water Quality Dashboard</h1>
+    <div>
+      <span id="userInfo"></span>
+      <button class="outline" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="stats">
+      <div><span>Total tests</span><b id="total">-</b></div>
+      <div><span>Unsafe results</span><b class="red" id="unsafe">-</b></div>
+      <div><span>Unsafe percentage</span><b id="percent">-</b></div>
+    </div>
+
+    <div class="filters">
+      <div id="villageBox">
+        <label for="village">Village</label>
+        <select id="village"><option value="">All</option></select>
+      </div>
+      <div>
+        <label for="status">Status</label>
+        <select id="status">
+          <option value="">All</option>
+          <option value="safe">Safe</option>
+          <option value="unsafe">Unsafe</option>
+        </select>
+      </div>
+      <div><label for="from">From</label><input type="date" id="from"></div>
+      <div><label for="to">To</label><input type="date" id="to"></div>
+      <button id="applyBtn">Apply</button>
+    </div>
+
+    <div class="box table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Device ID</th><th>Village</th><th>District</th><th>GPS</th>
+            <th>pH</th><th>Fluoride</th><th>Nitrate</th><th>Chlorine</th>
+            <th>Tested on</th><th>Status</th><th>Operator</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="center hidden" id="noData">No results found for these filters.</div>
+    </div>
+
+    <div class="center"><button id="moreBtn" class="hidden">Load more</button></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
